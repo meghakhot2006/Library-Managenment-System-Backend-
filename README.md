@@ -1,64 +1,120 @@
-Create a file named README.md in your project folder and paste this:
-# 📚 Library Management System Backend A backend application for managing a library system. This project provides APIs for user authentication and book management with role-based access control. ## 🚀 Features - User Registration (Signup) - User Login with JWT Authentication - Role-based Authorization (Admin/User) - Add New Books (Admin only) - View All Books - View Book Details by ID - Update Book Details (Admin only) - Delete Books (Admin only) - MongoDB Database Integration --- ## 🛠️ Technologies Used - Node.js - Express.js - MongoDB - Mongoose - JWT (JSON Web Token) - bcrypt.js - dotenv - Thunder Client (API Testing) --- ## 📂 Project Structure 
-Library-Management-System/ │ ├── controllers/ │ ├── authController.js │ └── bookController.js │ ├── models/ │ ├── User.js │ └── Book.js │ ├── routes/ │ ├── authRoutes.js │ └── bookRoutes.js │ ├── middleware/ │ └── authMiddleware.js │ ├── config/ │ └── db.js │ ├── .env ├── server.js ├── package.json └── README.md
---- ## ⚙️ Installation & Setup ### 1. Clone Repository ```bash git clone <your-github-repository-link> 
+📚 Library Management System Backend
 
-2. Go to Project Folder
+Project Overview
+
+The Library Management System Backend is a RESTful API built using Node.js, Express.js, and MongoDB. It provides secure user authentication using JWT (JSON Web Token) and allows administrators to manage books through CRUD (Create, Read, Update, Delete) operations.
+This project demonstrates backend development concepts such as authentication, authorization, routing, middleware, MongoDB integration, and API testing.
+
+✨ Features
+
+User Registration (Signup)
+
+User Login with JWT Authentication
+
+Role-Based Access Control (Admin/User)
+
+Add New Books (Admin Only)
+
+View All Books
+
+View Book Details by ID
+
+Update Book Information
+
+Delete Books
+
+Secure Password Encryption using bcrypt
+
+MongoDB Database Integration
+
+RESTful API Architecture
+
+🛠 Technologies Used
+
+Node.js
+
+Express.js
+
+MongoDB
+
+Mongoose
+
+JWT (JSON Web Token)
+
+bcrypt.js
+
+dotenv
+
+Nodemon
+
+Thunder Client (API Testing)
+
+📂 Project Structure
+
+Library-Management-System │ ├── config │ └── db.js │ ├── controllers │ ├── authController.js │ └── bookController.js │ ├── middleware │ └── authMiddleware.js │ ├── models │ ├── User.js │ └── Book.js │ ├── routes │ ├── authRoutes.js │ └── bookRoutes.js │ ├── .env ├── package.json ├── server.js └── README.md 
+
+⚙️ Installation
+
+Step 1: Clone Repository
+
+git clone <repository-link> 
+
+Step 2: Navigate to Project Folder
 
 cd Library-Management-System 
 
-3. Install Dependencies
+Step 3: Install Dependencies
 
 npm install 
 
-4. Create .env File
+🔐 Environment Variables
 
-Add the following:
+Create a .env file in the project root and add:
 PORT=5000 MONGO_URI=your_mongodb_connection_string JWT_SECRET=your_secret_key 
 
-▶️ Run Project
+▶️ Running the Project
 
-For normal run:
+Start the server:
 node server.js 
-For development:
+or
 npm run dev 
-Server will start at:
+Server URL:
 http://localhost:5000 
 
-🔐 API Endpoints
+📌 API Endpoints
 
-👤 Authentication APIs
+Authentication
 
-Signup
+User Signup
 
 POST
 /api/signup 
-Request Body:
-{ "username":"Pallavi", "email":"pallavi@gmail.com", "password":"1234", "role":"Admin" } 
-Response:
-{ "message":"User Registered Successfully" } 
+Request Body
+{ "username": "Pallavi", "email": "pallavi@gmail.com", "password": "1234", "role": "Admin" } 
+Response
+{ "message": "User Registered Successfully" } 
 
-Login
+User Login
 
 POST
 /api/login 
-Request Body:
-{ "username":"Pallavi", "password":"1234" } 
-Response:
-{ "message":"Login Successful", "token":"JWT_TOKEN" } 
+Request Body
+{ "username": "Pallavi", "password": "1234" } 
+Response
+{ "message": "Login Successful", "token": "JWT_TOKEN" } 
 
-📖 Book APIs
+📚 Book APIs
 
-All book APIs require JWT token.
+All book APIs require a valid JWT token.
 Header:
-Authorization: Bearer <token> 
+Authorization: Bearer <JWT_TOKEN> 
 
 Add Book
 
 POST
 /api/books/add-book 
-Body:
-{ "title":"Java", "author":"James", "category":"Programming", "isbn":"BK1001", "availableCopies":5 } 
+Request Body
+{ "title": "Java", "author": "James", "category": "Programming", "isbn": "BK1001", "availableCopies": 5 } 
 
 Get All Books
 
@@ -74,49 +130,66 @@ Update Book
 
 PUT
 /api/books/update-book/:id 
-Body:
-{ "title":"Advanced Java", "availableCopies":10 } 
+Request Body
+{ "title": "Advanced Java", "availableCopies": 10 } 
 
 Delete Book
 
 DELETE
 /api/books/delete-book/:id 
 
+🔒 Authentication
+
+This project uses JWT (JSON Web Token) for secure authentication.
+
+Users receive a token after successful login.
+
+The token must be included in the Authorization header for protected routes.
+
+Only users with the Admin role can add, update, or delete books.
+
 🧪 API Testing
 
-APIs were tested using Thunder Client.
-Testing flow:
+The APIs were tested successfully using Thunder Client.
+Testing Sequence:
 
-Register User
+User Signup
 
-Login User
-
-Copy JWT Token
+User Login
 
 Add Book
 
 Get All Books
 
-Get Book By ID
+Get Book by ID
 
 Update Book
 
 Delete Book
 
-🔒 Authentication
+📈 Future Enhancements
 
-This project uses JWT authentication.
+Borrow Book API
 
-Users receive a token after successful login.
+Return Book API
 
-Token must be passed in the Authorization header.
+Search Books by Title or Author
 
-Admin users can manage books.
+Pagination and Filtering
+
+Book Availability Tracking
+
+User Borrow History
+
+Fine Calculation
+
+Swagger API Documentation
 
 👩‍💻 Author
 
 Pallavi Anand Naik
-BCA Student
-⭐ If you find this project useful, give it a star!
-After adding this: ```bash git add README.md git commit -m "Added project README" git push 
-Your GitHub repository will look complete and professional.
+Course: Bachelor of Computer Applications (BCA)
+
+Conclusion
+
+The Library Management System Backend provides a secure and efficient REST API for managing users and books. It demonstrates modern backend development practices using Node.js, Express.js, MongoDB, JWT authentication, and role-based authorization. The project is scalable and can be extended with additional library management features in the future.
