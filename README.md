@@ -1,1 +1,122 @@
-# Library Management System (Backend) A RESTful backend application developed using **Node.js**, **Express.js**, **MongoDB**, and **Mongoose** following the **MVC Architecture**. The project includes user authentication, rolebased authorization, and complete CRUD operations for managing library books.--## Features ### Authentication- User Registration- User Login- Password Hashing using bcrypt- JWT Authentication- Role-Based Authorization (Admin/User) ### Book Management- Add Book (Admin)- Update Book (Admin)- Delete Book (Admin)- View All Books- View Single Book ### Validation- Required Field Validation- Duplicate Email Validation- Duplicate ISBN Validation- Proper Error Handling- HTTP Status Codes--## Technologies Used- Node.js- Express.js- MongoDB- Mongoose- JWT (JSON Web Token)- bcrypt- dotenv--## Project Structure ``` Library-Management-System/ │ ├── config/ │   └── db.js │ ├── controllers/ │   ├── authController.js │   └── bookController.js │ ├── middleware/│   ├── authMiddleware.js │   └── adminMiddleware.js │ ├── models/ │   ├── User.js │   └── Book.js │ ├── routes/ │   ├── authRoutes.js │   └── bookRoutes.js │ ├── .env ├── package.json ├── server.js └── README.md ```--## Installation ### 1. Clone the Repository ```bash git clone <repository-url> ``` ### 2. Install Dependencies ```bash npm install ``` ### 3. Configure Environment Variables Create a `.env` file. ```env PORT=5000 MONGO_URI=your_mongodb_connection_string JWT_SECRET=your_secret_key ``` ### 4. Start the Server ```bash npm run dev ```--## API Endpoints ### Authentication | Method | Endpoint | Description | |--------|----------|-------------|| POST | /api/auth/register | Register a new user | | POST | /api/auth/login | Login user | ### Books | Method | Endpoint | Description | |--------|----------|-------------| | GET | /api/books | Get all books | | GET | /api/books/:id | Get single book | | POST | /api/books | Add a new book (Admin) | | PUT | /api/books/:id | Update a book (Admin) | | DELETE | /api/books/:id | Delete a book (Admin) |--## HTTP Status Codes- 200 – Success- 201 – Created- 400 – Bad Request- 401 – Unauthorized- 403 – Forbidden- 404 – Not Found- 500 – Internal Server Error--## API Testing Use **Thunder Client** or **Postman** to test all endpoints.--## Author Backend Practice Project – Library Management System
+Create a file named README.md in your project folder and paste this:
+# 📚 Library Management System Backend A backend application for managing a library system. This project provides APIs for user authentication and book management with role-based access control. ## 🚀 Features - User Registration (Signup) - User Login with JWT Authentication - Role-based Authorization (Admin/User) - Add New Books (Admin only) - View All Books - View Book Details by ID - Update Book Details (Admin only) - Delete Books (Admin only) - MongoDB Database Integration --- ## 🛠️ Technologies Used - Node.js - Express.js - MongoDB - Mongoose - JWT (JSON Web Token) - bcrypt.js - dotenv - Thunder Client (API Testing) --- ## 📂 Project Structure 
+Library-Management-System/ │ ├── controllers/ │ ├── authController.js │ └── bookController.js │ ├── models/ │ ├── User.js │ └── Book.js │ ├── routes/ │ ├── authRoutes.js │ └── bookRoutes.js │ ├── middleware/ │ └── authMiddleware.js │ ├── config/ │ └── db.js │ ├── .env ├── server.js ├── package.json └── README.md
+--- ## ⚙️ Installation & Setup ### 1. Clone Repository ```bash git clone <your-github-repository-link> 
+
+2. Go to Project Folder
+
+cd Library-Management-System 
+
+3. Install Dependencies
+
+npm install 
+
+4. Create .env File
+
+Add the following:
+PORT=5000 MONGO_URI=your_mongodb_connection_string JWT_SECRET=your_secret_key 
+
+▶️ Run Project
+
+For normal run:
+node server.js 
+For development:
+npm run dev 
+Server will start at:
+http://localhost:5000 
+
+🔐 API Endpoints
+
+👤 Authentication APIs
+
+Signup
+
+POST
+/api/signup 
+Request Body:
+{ "username":"Pallavi", "email":"pallavi@gmail.com", "password":"1234", "role":"Admin" } 
+Response:
+{ "message":"User Registered Successfully" } 
+
+Login
+
+POST
+/api/login 
+Request Body:
+{ "username":"Pallavi", "password":"1234" } 
+Response:
+{ "message":"Login Successful", "token":"JWT_TOKEN" } 
+
+📖 Book APIs
+
+All book APIs require JWT token.
+Header:
+Authorization: Bearer <token> 
+
+Add Book
+
+POST
+/api/books/add-book 
+Body:
+{ "title":"Java", "author":"James", "category":"Programming", "isbn":"BK1001", "availableCopies":5 } 
+
+Get All Books
+
+GET
+/api/books/all-books 
+
+Get Book By ID
+
+GET
+/api/books/book/:id 
+
+Update Book
+
+PUT
+/api/books/update-book/:id 
+Body:
+{ "title":"Advanced Java", "availableCopies":10 } 
+
+Delete Book
+
+DELETE
+/api/books/delete-book/:id 
+
+🧪 API Testing
+
+APIs were tested using Thunder Client.
+Testing flow:
+
+Register User
+
+Login User
+
+Copy JWT Token
+
+Add Book
+
+Get All Books
+
+Get Book By ID
+
+Update Book
+
+Delete Book
+
+🔒 Authentication
+
+This project uses JWT authentication.
+
+Users receive a token after successful login.
+
+Token must be passed in the Authorization header.
+
+Admin users can manage books.
+
+👩‍💻 Author
+
+Pallavi Anand Naik
+BCA Student
+⭐ If you find this project useful, give it a star!
+After adding this: ```bash git add README.md git commit -m "Added project README" git push 
+Your GitHub repository will look complete and professional.
