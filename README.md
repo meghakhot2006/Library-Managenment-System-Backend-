@@ -90,7 +90,7 @@ User Signup
 POST
 /api/signup 
 Request Body
-{ "username": "Pallavi", "email": "pallavi@gmail.com", "password": "1234", "role": "Admin" } 
+{ "username": "Pallavi", "email": "meghai@gmail.com", "password": "1234", "role": "Admin" } 
 Response
 { "message": "User Registered Successfully" } 
 
@@ -99,7 +99,7 @@ User Login
 POST
 /api/login 
 Request Body
-{ "username": "Pallavi", "password": "1234" } 
+{ "username": "megha", "password": "1234" } 
 Response
 { "message": "Login Successful", "token": "JWT_TOKEN" } 
 
@@ -187,7 +187,7 @@ Swagger API Documentation
 
 👩‍💻 Author
 
-Pallavi Anand Naik
+Megha Sanjay Khot
 Course: Bachelor of Computer Applications (BCA)
 
 Conclusion
